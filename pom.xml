@@ -52,7 +52,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.0</version>
                 <configuration>
-                    <mainClass>com.rasha.Main</mainClass>
+                    <mainClass>src/main/java/com/rasha/Main.java</mainClass>
                 </configuration>
             </plugin>
         </plugins>
