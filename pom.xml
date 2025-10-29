@@ -46,13 +46,13 @@
     </dependencies>
     <build>
         <plugins>
-            <!-- Plugin to run main class -->
+            <!-- Kör main-klassen via Maven -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.5.0</version>
                 <configuration>
-                    <mainClass>src/main/java/com/rasha/Main.java</mainClass>
+                    <mainClass>com.myapp.MainApp</mainClass>
                 </configuration>
             </plugin>
         </plugins>
