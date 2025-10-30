@@ -66,12 +66,18 @@ public class ConsoleMenu {
         String lastName = scanner.nextLine();
         if (!InputValidator.isValidName(lastName)) return;
 
-        System.out.print("Ålder: ");
+        System.out.print("Ange ålder: ");
         int age = InputValidator.readInt(scanner);
-        System.out.print("Bransch: ");
+        if (!InputValidator.isValidAge(age)) return;
+
+        System.out.print("Ange bransch: ");
         String branch = scanner.nextLine();
-        System.out.print("Erfarenhet (år): ");
+        if (!InputValidator.isValidBranch(branch)) return;
+
+
+        System.out.print("Ange antal år erfarenhet: ");
         int experience = InputValidator.readInt(scanner);
+        if (!InputValidator.isValidExperience(experience)) return;
 
         Candidate candidate = new Candidate(firstName, lastName, age, branch, experience);
         service.addCandidate(candidate);
@@ -89,7 +95,7 @@ public class ConsoleMenu {
 
     private void showAll() {
         List<Candidate> candidates = service.getAllCandidates();
-        System.out.println("\n Alla kandidater:");
+        System.out.println("\n Alla kandidater i systemet:");
         candidates.forEach(System.out::println);
     }
 

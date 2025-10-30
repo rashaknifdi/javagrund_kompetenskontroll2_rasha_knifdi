@@ -29,4 +29,31 @@ public class InputValidator {
         }
         return true;
     }
+
+    public static boolean isValidAge(int age) {
+        if (age < 0 || age > 120) {
+            LoggerUtil.logWarn("Ogiltig ålder angavs: " + age);
+            System.out.println(" Ålder måste vara mellan 0 och 120.");
+            return false;
+        }
+        return true;
+    }
+    public static boolean isValidBranch(String branch) {
+        if (branch == null || branch.trim().isEmpty()) {
+            LoggerUtil.logWarn("Tom eller ogiltig bransch angavs.");
+            System.out.println("Branschen får inte vara tom. Ange en giltig bransch.");
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean isValidExperience(int years) {
+        if (years < 0 || years > 100) {
+            LoggerUtil.logWarn("Ogiltigt antal erfarenhetsår: " + years);
+            System.out.println("Erfarenhet måste vara mellan 0 och 100 år.");
+            return false;
+        }
+        return true;
+    }
+
 }
