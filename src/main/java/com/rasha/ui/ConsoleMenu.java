@@ -58,11 +58,11 @@ public class ConsoleMenu {
     }
 
     private void addCandidate() {
-        System.out.print("Förnamn: ");
+        System.out.print("Ange förnamn: ");
         String firstName = scanner.nextLine();
         if (!InputValidator.isValidName(firstName)) return;
 
-        System.out.print("Efternamn: ");
+        System.out.print("Ange efternamn: ");
         String lastName = scanner.nextLine();
         if (!InputValidator.isValidName(lastName)) return;
 
@@ -83,9 +83,9 @@ public class ConsoleMenu {
     }
 
     private void removeCandidate() {
-        System.out.print("Förnamn: ");
+        System.out.print("Ange förnamn: ");
         String firstName = scanner.nextLine();
-        System.out.print("Efternamn: ");
+        System.out.print("Ange efternamn: ");
         String lastName = scanner.nextLine();
 
         Candidate candidate = new Candidate(firstName, lastName, 0, "", 0);
