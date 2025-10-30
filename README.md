@@ -98,7 +98,7 @@ Jag har använt AI som en pedagogisk verktyg för att förstå, reflektera och s
 
 1. Klona projektet:
    ```bash
-   git clone https://github.com/rasha-knifdi/javagrund_kompetenskontroll2_rasha_knifdi.git
+   git clone https://github.com/rashaknifdi/javagrund_kompetenskontroll2_rasha_knifdi.git
    cd javagrund_kompetenskontroll2_rasha_knifdi
 
 2. Kör Main med Maven:
