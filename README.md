@@ -94,13 +94,24 @@ Jag har använt AI som en pedagogisk verktyg för att förstå, reflektera och s
 
 ---
 
-## ✅ Sammanfattning
+## 🧪 Så kör du projektet via Git Bash, windows powershell eller terminalen:
 
-Projektet uppfyller kraven för både G och VG:
+1. Klona projektet:
+   ```bash
+   git clone https://github.com/rasha-knifdi/javagrund_kompetenskontroll2_rasha_knifdi.git
+   cd javagrund_kompetenskontroll2_rasha_knifdi
 
-- ✅ Stream API och lambdauttryck används
-- ✅ SOLID-principerna följs (SRP, OCP, DIP)
-- ✅ Loggning med SLF4J är implementerad
-- ✅ Enhetstester med mock-objekt är skapade
-- ✅ Prompt-engineering har använts och dokumenterats
-- ✅ Koden är strukturerad, testbar och lätt att bygga vidare på
+2. Kör Main med Maven:
+   ```bash
+   mvn compile
+   mvn exec:java
+
+3. kör tester med Maven
+    ```bash
+    mvn test
+
+----
+## 👤 Utvecklare
+- Namn: Rasha Knifdi
+
+- Roll: Fullstack Java Student
