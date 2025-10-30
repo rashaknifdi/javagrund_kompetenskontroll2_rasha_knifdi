@@ -35,21 +35,46 @@ För filtrering och sortering används **Stream API** och **lambdauttryck** i fi
 
 ---
 
-## 🧩 Motivering av klassval utifrån SOLID-principerna
+## 🧩 SOLID-principer i klassdesign
 
-Jag har strukturerat min kod så att den följer flera av SOLID-principerna, särskilt SRP, OCP och DIP. Här är en motivering av mina klassval:
+Jag har strukturerat min kod så att den följer flera av **SOLID-principerna**:  
+**SRP (Single Responsibility Principle)**, **OCP (Open/Closed Principle)**,  
+**DIP (Dependency Inversion Principle)**, **LSP (Liskov Substitution Principle)** och  
+**ISP (Interface Segregation Principle)**. Här är en motivering av mina klassval:
 
-- **Candidate**: Har ett tydligt ansvar att representera en kandidat. Följer SRP.
-- **CandidateRepository (interface)**: Abstraktion för datalagring. Följer DIP.
-- **CandidateListRepository**: Implementerar datalagring. Följer SRP och DIP.
-- **CandidateService**: Hanterar affärslogik som tillägg, borttagning, filtrering och sortering. Följer SRP och DIP.
-- **CandidateFilter (interface)**: Definierar strategi för filtrering/sortering. Följer OCP och DIP.
-- **BranchFilter, ExperienceFilter, NameSorter**: Varje klass har ett tydligt ansvar. Nya filter kan läggas till utan att ändra befintlig kod. Följer SRP och OCP.
-- **LoggerUtil**: Ansvarar för loggning. Följer SRP.
-- **InputValidator**: Ansvarar för inmatningskontroll. Följer SRP.
-- **ConsoleMenu**: Hanterar användargränssnittet. Följer SRP.
+- **`Candidate`** – Representerar en kandidat med tydligt ansvar. Följer **SRP**.
+- **`CandidateRepository` (interface)** – Abstraktion för datalagring. Följer **DIP**.
+- **`CandidateListRepository`** – Implementerar datalagring. Följer **SRP** och **DIP**.
+- **`CandidateService`** – Hanterar affärslogik som tillägg, borttagning, filtrering och sortering. Följer **SRP** och **DIP**.
+- **`CandidateFilter` (interface)** – Definierar strategi för filtrering/sortering. Följer **OCP** och **ISP**.  
+  Används av `CandidateService` som en abstraktion – vilket bidrar till att **DIP** efterlevs.
+- **`BranchFilter`, `ExperienceFilter`, `NameSorter`** – Varje klass har ett tydligt ansvar.  
+  Nya filter kan läggas till utan att ändra befintlig kod. Följer **SRP**, **OCP** och **LSP**.
+- **`LoggerUtil`** – Ansvarar för loggning. Följer **SRP**.
+- **`InputValidator`** – Ansvarar för inmatningskontroll. Följer **SRP**.
+- **`ConsoleMenu`** – Hanterar användargränssnittet. Följer **SRP**.
 
-Genom att dela upp ansvar på det här sättet har jag gjort koden lättare att testa, underhålla och bygga vidare på.
+---
+
+## ✍️ Fördjupad motivering av två klassval
+
+För att konkretisera hur jag har tillämpat **SOLID-principerna** i praktiken vill jag lyfta fram två centrala klassval:
+
+### 📌 `CandidateService` – affärslogik med tydlig ansvarsfördelning
+
+`CandidateService` ansvarar för operationer som att lägga till, ta bort, filtrera och sortera kandidater. Den hanterar inte datalagring direkt, utan använder ett `CandidateRepository`-interface.
+
+- **SRP** – Har ett tydligt och avgränsat ansvar: affärslogik.
+- **DIP** – Beror på abstraktioner (`CandidateRepository`, `CandidateFilter`) istället för konkreta implementationer, vilket gör klassen lätt att testa och utöka.
+
+### 📌 `CandidateFilter` och dess implementationer – flexibel och utbyggbar filtrering
+
+`CandidateFilter` är ett interface som definierar en strategi för filtrering eller sortering. Varje implementation, som `BranchFilter`, `ExperienceFilter` och `NameSorter`, har ett tydligt och avgränsat ansvar.
+
+- **OCP** – Nya filter kan läggas till utan att ändra befintlig kod.
+- **SRP** – Varje filterklass fokuserar på en enda uppgift.
+- **LSP** – Alla filterklasser kan användas där `CandidateFilter` förväntas – utan att bryta funktionalitet.
+- **ISP** – Interfacet är smalt och fokuserat, med endast en metod (`apply`), vilket gör det enkelt att implementera utan onödiga beroenden.
 
 ---
 

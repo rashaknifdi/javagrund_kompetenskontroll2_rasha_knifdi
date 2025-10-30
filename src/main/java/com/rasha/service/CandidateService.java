@@ -35,8 +35,7 @@ public class CandidateService {
         return repository.findAll().stream()
                 .anyMatch(c ->
                         c.getFirstName().equalsIgnoreCase(candidate.getFirstName()) &&
-                                c.getLastName().equalsIgnoreCase(candidate.getLastName())
-                );
+                                c.getLastName().equalsIgnoreCase(candidate.getLastName()));
     }
 
     // Hämta alla kandidater
