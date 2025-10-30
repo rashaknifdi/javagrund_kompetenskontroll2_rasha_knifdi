@@ -3,23 +3,11 @@ package com.rasha.util;
 import java.util.Scanner;
 
 /**
- * Validerar användarens inmatning, t.ex. heltal och namn.
+ * Validerar användarens inmatning, t.ex. namn, ålder, bransch, erfarenhetsår och heltal
  * Håller valideringslogik separat från affärslogik – följer SRP.
  */
 
 public class InputValidator {
-
-    public static int readInt(Scanner scanner) {
-        while (true) {
-            String input = scanner.nextLine();
-            try {
-                return Integer.parseInt(input);
-            } catch (NumberFormatException e) {
-                LoggerUtil.logWarn("Ogiltigt heltal: " + input);
-                System.out.print("Ogiltigt värde. Ange ett heltal: ");
-            }
-        }
-    }
 
     public static boolean isValidName(String name) {
         if (name == null || name.trim().isEmpty()) {
@@ -54,6 +42,18 @@ public class InputValidator {
             return false;
         }
         return true;
+    }
+
+    public static int readInt(Scanner scanner) {
+        while (true) {
+            String input = scanner.nextLine();
+            try {
+                return Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                LoggerUtil.logWarn("Ogiltigt heltal: " + input);
+                System.out.print("Ogiltigt värde. Ange ett heltal: ");
+            }
+        }
     }
 
 }

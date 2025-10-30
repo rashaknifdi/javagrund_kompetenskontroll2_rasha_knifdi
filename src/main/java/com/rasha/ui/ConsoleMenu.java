@@ -74,7 +74,6 @@ public class ConsoleMenu {
         String branch = scanner.nextLine();
         if (!InputValidator.isValidBranch(branch)) return;
 
-
         System.out.print("Ange antal år erfarenhet: ");
         int experience = InputValidator.readInt(scanner);
         if (!InputValidator.isValidExperience(experience)) return;
@@ -101,15 +100,21 @@ public class ConsoleMenu {
 
     private void filterByBranch() {
         System.out.print("Ange bransch: ");
+
         String branch = scanner.nextLine();
+        if (!InputValidator.isValidBranch(branch)) return;
+
         List<Candidate> filtered = service.filter(new BranchFilter(branch));
         System.out.println("\n Kandidater med bransch '" + branch + "':");
         filtered.forEach(System.out::println);
     }
 
     private void filterByExperience() {
-        System.out.print("Minsta antal år: ");
+        System.out.print("Ange minsta antal år: ");
+
         int years = InputValidator.readInt(scanner);
+        if (!InputValidator.isValidExperience(years)) return;
+
         List<Candidate> filtered = service.filter(new ExperienceFilter(years));
         System.out.println("\n Kandidater med minst " + years + " år erfarenhet:");
         filtered.forEach(System.out::println);
