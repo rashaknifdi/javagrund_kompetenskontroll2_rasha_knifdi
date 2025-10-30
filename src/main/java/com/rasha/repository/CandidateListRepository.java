@@ -21,8 +21,8 @@ public class CandidateListRepository implements CandidateRepository{
     public void delete(Candidate candidate) {
         candidates.removeIf(c ->
                         c.getFirstName().equalsIgnoreCase(candidate.getFirstName()) &&
-                        c.getLastName().equalsIgnoreCase(candidate.getLastName()) &&
-                        c.getAge() == candidate.getAge());
+                        c.getLastName().equalsIgnoreCase(candidate.getLastName())) ;
+
     }
     @Override
     public List<Candidate> findAll() {
