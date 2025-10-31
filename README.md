@@ -85,6 +85,7 @@ Jag har skapat flera enhetstester med JUnit och Mockito:
 - `CandidateServiceTest`: Testar `addCandidate`, `removeCandidate`, `getAllCandidates` med mockat repository.
 - `BranchFilterTest`, `ExperienceFilterTest`, `NameSorterTest`: Testar filtrering och sortering.
 - `CandidateListRepositoryTest`: Testar lagring och borttagning.
+- `InputValidatorTest` – testar validering av namn, ålder, bransch och erfarenhetsår
 
 Mock-objekt används för att isolera beroenden och testa logik utan att påverka datalagring.
 
